@@ -9,6 +9,7 @@ from common.cnn_models import FewshotClassifier
 from maml.models import MAML
 from maml.utils import fast_adapt
 from tqdm import tqdm
+import pandas as pd
 import argparse
 
 import neptune.new as neptune
@@ -28,8 +29,10 @@ def set_seed(seed):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--root_path", default='./datasets/miniimagenet/pkl_file/', type=str, help="root path")
-    parser.add_argument("--N", default=5, type=int, help="N way")
-    parser.add_argument("--K", default=1, type=int, help="K shot")
+    parser.add_argument("--trainN", default=5, type=int, help="trainN way")
+    parser.add_argument("--trainK", default=1, type=int, help="trainK shot")
+    parser.add_argument("--testN", default=5, type=int, help="testN way")
+    parser.add_argument("--testK", default=5, type=int, help="testK shot")
     parser.add_argument("--Q", default=15, type=int, help="Num of query per class")
     parser.add_argument("--batch_size", default=8, type=int, help="batch size")
     parser.add_argument("--train_iter", default=60000, type=int, help="num of iters in training")
@@ -54,32 +57,36 @@ def main():
     device = torch.device(args.cuda_device if torch.cuda.is_available() else 'cpu')
 
     root_path = args.root_path
-    N = args.N
+    trainN = args.trainN
+    trainK = args.trainK
+    testN = args.testN
+    testK = args.testK
     Q = args.Q
-    K = args.K
     batch_size = args.batch_size
     set_seed(args.seed)
     
-    train_dataset = MiniImagenet(path=root_path, N=N, K=K, Q=Q, \
+    train_dataset = MiniImagenet(path=root_path, N=trainN, K=trainK, Q=Q, \
                                  mode='train', total_iter=args.train_iter)
     train_loader = DataLoader(train_dataset, batch_size=batch_size,\
                             shuffle=True, num_workers=1)
-    val_dataset = MiniImagenet(path=root_path, N=N, K=K, Q=Q,\
+    val_dataset = MiniImagenet(path=root_path, N=testN, K=testK, Q=Q,\
                                mode='validation', total_iter=args.val_iter)
     val_loader = DataLoader(val_dataset, batch_size=batch_size,\
                             shuffle=True, num_workers=1)
-    test_dataset = MiniImagenet(path=root_path, N=N, K=K, Q=Q,\
+    test_dataset = MiniImagenet(path=root_path, N=testN, K=testK, Q=Q,\
                                 mode='test', total_iter=args.test_iter)
     test_loader = DataLoader(test_dataset, batch_size=batch_size,\
                             shuffle=True, num_workers=1)
     
-    model = FewshotClassifier(output_size=N)
+    model = FewshotClassifier(output_size=trainN)
     model.to(device)
     maml = MAML(model, lr=args.fast_lr, first_order=False)
     maml.to(device)
     opt = optim.Adam(maml.parameters(), args.meta_lr)
     loss = nn.CrossEntropyLoss(reduction='mean')
     
+    log_df = pd.DataFrame(columns=['iteration', 'mean_acc', 'std_acc', \
+                                   'mean_loss', 'std_loss', 'mode'])
     iteration = 0
     for task_batch in train_loader:
         torch.cuda.empty_cache()
@@ -110,7 +117,14 @@ def main():
                   ' std : ', round(np.std(meta_train_error), 4))
             print('Meta Train Accuracy : ', round(np.mean(meta_train_accuracy), 4),\
                   ' std : ', round(np.std(meta_train_accuracy), 4))
-        
+            
+            log_df = log_df.append({'iteration':iteration,\
+                        'mean_acc': np.mean(meta_train_accuracy),\
+                        'std_acc':np.std(meta_train_accuracy), \
+                        'mean_loss': np.mean(meta_train_error),\
+                        'std_loss': np.std(meta_train_error),\
+                        'mode':'train'}, ignore_index=True)
+
         if iteration % 5000 == 0:
             # Compute meta-validation loss
             meta_valid_error = []
@@ -134,6 +148,13 @@ def main():
                   ' std : ', round(np.std(meta_valid_error), 4))
             print('Meta Valid Accuracy : ', round(np.mean(meta_valid_accuracy), 4),\
                   ' std : ', round(np.std(meta_valid_accuracy), 4))
+            
+            log_df = log_df.append({'iteration':iteration,\
+                        'mean_acc': np.mean(meta_valid_accuracy),\
+                        'std_acc':np.std(meta_valid_accuracy), \
+                        'mean_loss': np.mean(meta_valid_error),\
+                        'std_loss': np.std(meta_valid_error),\
+                        'mode':'validation'}, ignore_index=True)
     
     meta_test_error = []
     meta_test_accuracy = []
@@ -155,6 +176,13 @@ def main():
             " std : ", round(np.std(meta_test_error), 4))
     print('Meta test Accuracy : ', round(np.mean(meta_test_accuracy), 4),\
             " std : ", round(np.std(meta_test_accuracy), 4))
+    
+    log_df = log_df.append({'iteration':iteration,\
+                            'mean_acc': np.mean(meta_test_accuracy),\
+                            'std_acc':np.std(meta_test_accuracy), \
+                            'mean_loss': np.mean(meta_test_error),\
+                            'std_loss': np.std(meta_test_error),\
+                            'mode':'test'}, ignore_index=True)
 
 if __name__ == '__main__':
     main()

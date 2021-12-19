@@ -6,3 +6,5 @@ backup/
 datasets/
 l2l*
 Untitled*
+credentials/
+api_key.py
