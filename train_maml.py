@@ -13,10 +13,11 @@ import pandas as pd
 import argparse
 
 import neptune.new as neptune
+from credentials.api_key import API_KEY, PROJECT
 
 run = neptune.init(
-    project="lmhoon012/meta-learning",
-    api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiJmMTg4ODIyNC0xMDU0LTQzNzctOGU0Ni1kY2VkNWYwMTA1YzYifQ==",
+    project=PROJECT,
+    api_token=API_KEY,
 )  # your credentials
 
 def set_seed(seed):
@@ -38,7 +39,7 @@ def main():
     parser.add_argument("--train_iter", default=60000, type=int, help="num of iters in training")
     parser.add_argument("--val_iter", default=10000, type=int, help="num of iters in validation")
     parser.add_argument("--test_iter", default=60000, type=int, help="num of iters in testing")
-    parser.add_argument("--adaptation_steps", default=1, type=int, help="num of adatation steps")
+    parser.add_argument("--adaptation_steps", default=2, type=int, help="num of adatation steps")
     parser.add_argument("--seed", default=777, type=int, help="random seed")
     parser.add_argument("--meta_lr", default=0.003, type=float, help="meta learner learning rate")
     parser.add_argument("--fast_lr", default=0.5, type=float, help="fast adaptation learning rate")
@@ -46,8 +47,9 @@ def main():
     parser.add_argument("--first_order", action="store_true", help="first order")
     args = parser.parse_args()
     
-    params = {'N': args.N, 'K':args.K, 'Q':args.Q, 'train_iter':args.train_iter, \
-              'val_iter':args.val_iter, 'test_iter':args.test_iter, \
+    params = {'trainN': args.trainN, 'trainK':args.trainK, 'Q':args.Q,\
+              'testN':args.testN, 'testK':args.testK, \
+              'train_iter':args.train_iter, 'val_iter':args.val_iter, 'test_iter':args.test_iter, \
               'adaptation_steps':args.adaptation_steps, 'batch_size':args.batch_size,\
               'first_order':args.first_order,'meta_lr':args.meta_lr, 'fast_lr':args.fast_lr,\
               'seed': args.seed}
@@ -183,6 +185,8 @@ def main():
                             'mean_loss': np.mean(meta_test_error),\
                             'std_loss': np.std(meta_test_error),\
                             'mode':'test'}, ignore_index=True)
+    
+    log_df.to_csv('./log/maml_test_log_{}ways_{}shot.csv'.format(testN, testK), index=False)
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,16 @@
+https://app.neptune.ai/lmhoon012/meta-learning/e/MET-59
+Iteration 1000
+Meta Train Error :  1.6084  std :  0.029
+Meta Train Accuracy :  0.215  std :  0.0567
+Iteration 2000
+Meta Train Error :  1.6319  std :  0.0633
+Meta Train Accuracy :  0.2267  std :  0.0389
+Iteration 3000
+Meta Train Error :  1.5919  std :  0.0267
+Meta Train Accuracy :  0.21  std :  0.0484
+Iteration 4000
+Meta Train Error :  1.5915  std :  0.04
+Meta Train Accuracy :  0.2117  std :  0.0424
+Iteration 5000
+Meta Train Error :  1.5992  std :  0.0236
+Meta Train Accuracy :  0.2067  std :  0.0291

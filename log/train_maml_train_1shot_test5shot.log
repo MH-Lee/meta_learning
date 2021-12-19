@@ -1,0 +1,223 @@
+https://app.neptune.ai/lmhoon012/meta-learning/e/MET-58
+Iteration 1000
+Meta Train Error :  1.7861  std :  0.2407
+Meta Train Accuracy :  0.235  std :  0.0405
+Iteration 2000
+Meta Train Error :  1.5866  std :  0.0462
+Meta Train Accuracy :  0.2733  std :  0.0521
+Iteration 3000
+Meta Train Error :  1.5882  std :  0.039
+Meta Train Accuracy :  0.2317  std :  0.0516
+Iteration 4000
+Meta Train Error :  1.5131  std :  0.089
+Meta Train Accuracy :  0.335  std :  0.0804
+Iteration 5000
+Meta Train Error :  1.5782  std :  0.0374
+Meta Train Accuracy :  0.2617  std :  0.0625
+Valid Result
+Meta Valid Error :  1.5257  std :  0.0495
+Meta Valid Accuracy :  0.3451  std :  0.073
+Iteration 6000
+Meta Train Error :  1.5195  std :  0.0926
+Meta Train Accuracy :  0.305  std :  0.0798
+Iteration 7000
+Meta Train Error :  1.5056  std :  0.0993
+Meta Train Accuracy :  0.345  std :  0.0969
+Iteration 8000
+Meta Train Error :  1.4425  std :  0.14
+Meta Train Accuracy :  0.375  std :  0.1154
+Iteration 9000
+Meta Train Error :  1.4449  std :  0.1005
+Meta Train Accuracy :  0.3767  std :  0.0742
+Iteration 10000
+Meta Train Error :  1.4852  std :  0.1406
+Meta Train Accuracy :  0.3683  std :  0.1089
+Valid Result
+Meta Valid Error :  1.479  std :  0.0566
+Meta Valid Accuracy :  0.3986  std :  0.0751
+Iteration 11000
+Meta Train Error :  1.4239  std :  0.1119
+Meta Train Accuracy :  0.3633  std :  0.0894
+Iteration 12000
+Meta Train Error :  1.3696  std :  0.1219
+Meta Train Accuracy :  0.4133  std :  0.0806
+Iteration 13000
+Meta Train Error :  1.4315  std :  0.1504
+Meta Train Accuracy :  0.4083  std :  0.0763
+Iteration 14000
+Meta Train Error :  1.3903  std :  0.1909
+Meta Train Accuracy :  0.4133  std :  0.1155
+Iteration 15000
+Meta Train Error :  1.4517  std :  0.1905
+Meta Train Accuracy :  0.39  std :  0.1223
+Valid Result
+Meta Valid Error :  1.3829  std :  0.0822
+Meta Valid Accuracy :  0.4613  std :  0.0838
+Iteration 16000
+Meta Train Error :  1.3559  std :  0.1948
+Meta Train Accuracy :  0.4567  std :  0.0949
+Iteration 17000
+Meta Train Error :  1.3817  std :  0.1996
+Meta Train Accuracy :  0.45  std :  0.1345
+Iteration 18000
+Meta Train Error :  1.4097  std :  0.2286
+Meta Train Accuracy :  0.3983  std :  0.1413
+Iteration 19000
+Meta Train Error :  1.41  std :  0.1645
+Meta Train Accuracy :  0.39  std :  0.0869
+Iteration 20000
+Meta Train Error :  1.2725  std :  0.1883
+Meta Train Accuracy :  0.47  std :  0.1203
+Valid Result
+Meta Valid Error :  1.3266  std :  0.0926
+Meta Valid Accuracy :  0.5002  std :  0.0837
+Iteration 21000
+Meta Train Error :  1.2913  std :  0.1127
+Meta Train Accuracy :  0.4833  std :  0.0968
+Iteration 22000
+Meta Train Error :  1.2523  std :  0.1958
+Meta Train Accuracy :  0.525  std :  0.0986
+Iteration 23000
+Meta Train Error :  1.2562  std :  0.1699
+Meta Train Accuracy :  0.495  std :  0.1051
+Iteration 24000
+Meta Train Error :  1.2385  std :  0.1852
+Meta Train Accuracy :  0.5  std :  0.1179
+Iteration 25000
+Meta Train Error :  1.2051  std :  0.2477
+Meta Train Accuracy :  0.52  std :  0.1226
+Valid Result
+Meta Valid Error :  1.2659  std :  0.1008
+Meta Valid Accuracy :  0.5249  std :  0.0831
+Iteration 26000
+Meta Train Error :  1.3815  std :  0.2038
+Meta Train Accuracy :  0.4283  std :  0.1019
+Iteration 27000
+Meta Train Error :  1.3698  std :  0.1242
+Meta Train Accuracy :  0.4033  std :  0.0949
+Iteration 28000
+Meta Train Error :  1.4578  std :  0.212
+Meta Train Accuracy :  0.385  std :  0.0997
+Iteration 29000
+Meta Train Error :  1.2982  std :  0.1451
+Meta Train Accuracy :  0.46  std :  0.076
+Iteration 30000
+Meta Train Error :  1.2673  std :  0.1153
+Meta Train Accuracy :  0.4867  std :  0.0724
+Valid Result
+Meta Valid Error :  1.243  std :  0.1088
+Meta Valid Accuracy :  0.5401  std :  0.0866
+Iteration 31000
+Meta Train Error :  1.3054  std :  0.1606
+Meta Train Accuracy :  0.47  std :  0.1185
+Iteration 32000
+Meta Train Error :  1.3719  std :  0.2378
+Meta Train Accuracy :  0.4167  std :  0.1341
+Iteration 33000
+Meta Train Error :  1.2539  std :  0.2029
+Meta Train Accuracy :  0.4567  std :  0.125
+Iteration 34000
+Meta Train Error :  1.2135  std :  0.1811
+Meta Train Accuracy :  0.47  std :  0.078
+Iteration 35000
+Meta Train Error :  1.1222  std :  0.2349
+Meta Train Accuracy :  0.56  std :  0.1619
+Valid Result
+Meta Valid Error :  1.227  std :  0.1159
+Meta Valid Accuracy :  0.5381  std :  0.0889
+Iteration 36000
+Meta Train Error :  1.3343  std :  0.2302
+Meta Train Accuracy :  0.4433  std :  0.1158
+Iteration 37000
+Meta Train Error :  1.2628  std :  0.2179
+Meta Train Accuracy :  0.485  std :  0.1145
+Iteration 38000
+Meta Train Error :  1.171  std :  0.1102
+Meta Train Accuracy :  0.5317  std :  0.0469
+Iteration 39000
+Meta Train Error :  1.2374  std :  0.1082
+Meta Train Accuracy :  0.4683  std :  0.0701
+Iteration 40000
+Meta Train Error :  1.0691  std :  0.199
+Meta Train Accuracy :  0.5933  std :  0.1106
+Valid Result
+Meta Valid Error :  1.188  std :  0.1223
+Meta Valid Accuracy :  0.5517  std :  0.0873
+Iteration 41000
+Meta Train Error :  1.2913  std :  0.1869
+Meta Train Accuracy :  0.4733  std :  0.1031
+Iteration 42000
+Meta Train Error :  1.1121  std :  0.2007
+Meta Train Accuracy :  0.54  std :  0.1261
+Iteration 43000
+Meta Train Error :  1.166  std :  0.1688
+Meta Train Accuracy :  0.5367  std :  0.0642
+Iteration 44000
+Meta Train Error :  1.1488  std :  0.2049
+Meta Train Accuracy :  0.55  std :  0.0896
+Iteration 45000
+Meta Train Error :  1.1134  std :  0.207
+Meta Train Accuracy :  0.5683  std :  0.1162
+Valid Result
+Meta Valid Error :  1.1807  std :  0.1216
+Meta Valid Accuracy :  0.5615  std :  0.0865
+Iteration 46000
+Meta Train Error :  1.0811  std :  0.2139
+Meta Train Accuracy :  0.6033  std :  0.1203
+Iteration 47000
+Meta Train Error :  1.1101  std :  0.2466
+Meta Train Accuracy :  0.545  std :  0.1394
+Iteration 48000
+Meta Train Error :  1.1594  std :  0.1741
+Meta Train Accuracy :  0.5183  std :  0.0826
+Iteration 49000
+Meta Train Error :  1.2292  std :  0.191
+Meta Train Accuracy :  0.505  std :  0.1132
+Iteration 50000
+Meta Train Error :  1.1903  std :  0.1841
+Meta Train Accuracy :  0.505  std :  0.0946
+Valid Result
+Meta Valid Error :  1.1638  std :  0.1233
+Meta Valid Accuracy :  0.5661  std :  0.0866
+Iteration 51000
+Meta Train Error :  1.192  std :  0.2634
+Meta Train Accuracy :  0.525  std :  0.1494
+Iteration 52000
+Meta Train Error :  1.146  std :  0.1412
+Meta Train Accuracy :  0.5233  std :  0.0672
+Iteration 53000
+Meta Train Error :  1.1864  std :  0.1685
+Meta Train Accuracy :  0.5367  std :  0.0835
+Iteration 54000
+Meta Train Error :  1.186  std :  0.1556
+Meta Train Accuracy :  0.5017  std :  0.073
+Iteration 55000
+Meta Train Error :  1.1631  std :  0.1458
+Meta Train Accuracy :  0.5367  std :  0.0573
+Valid Result
+Meta Valid Error :  1.1439  std :  0.1338
+Meta Valid Accuracy :  0.5728  std :  0.0897
+Iteration 56000
+Meta Train Error :  1.2364  std :  0.1768
+Meta Train Accuracy :  0.475  std :  0.1035
+Iteration 57000
+Meta Train Error :  1.07  std :  0.1809
+Meta Train Accuracy :  0.5817  std :  0.1157
+Iteration 58000
+Meta Train Error :  0.9972  std :  0.2601
+Meta Train Accuracy :  0.6167  std :  0.1062
+Iteration 59000
+Meta Train Error :  1.0481  std :  0.1258
+Meta Train Accuracy :  0.5883  std :  0.075
+Iteration 60000
+Meta Train Error :  1.0869  std :  0.2544
+Meta Train Accuracy :  0.57  std :  0.1306
+Valid Result
+Meta Valid Error :  1.1377  std :  0.1301
+Meta Valid Accuracy :  0.5703  std :  0.0878
+Meta Test Result
+Meta test Error :  1.0996  std :  0.1269
+Meta test Accuracy :  0.5825  std :  0.0827
+Shutting down background jobs, please wait a moment...
+Done!
+All 27 operations synced, thanks for waiting!
